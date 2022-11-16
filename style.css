@@ -1,0 +1,22 @@
+h1{
+    text-align: center;
+}
+#link_list{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+li{
+  
+    margin: 10pt;
+    list-style: none;
+    background-color: rgb(138, 94, 179);
+    padding: 10pt;
+    border: 2pt rgb(200, 183, 163) solid;
+    
+}
+li a{
+    color: bisque;
+    text-decoration: none;
+}
