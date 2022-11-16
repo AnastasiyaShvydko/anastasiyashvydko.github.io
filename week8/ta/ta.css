@@ -1,0 +1,10 @@
+#details{
+    background-color: rgb(205, 193, 196);
+    width: 100pt;
+}
+#people{
+    list-style: none;
+    background-color: rgb(156, 146, 146);
+    border:  2px solid rgb(40, 23, 23); 
+    width: 100pt;
+}

@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Fuzzy+Bubbles&display=swap');
+body{
+    display: flex;
+    justify-content: space-around;
+    font-family:'Dancing Script', cursive;
+
+}
+h1{font-size: 25pt;
+margin: 6pt;}
+.display{
+
+width: 300pt;
+background-color: bisque;
+text-align: center;
+margin: 10pt;
+padding: 10pt;
+background-image: url('background.jpg');
+background-size: 100%;
+
+}
+.section{
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color:rgba(243, 227, 227, 0.498);
+
+}
+
+#task.complited{
+    
+    text-decoration: line-through;
+    
+    
+}
+input{
+    height: 20pt;
+    background-color: #ecdce7;
+    font-family:'Dancing Script', cursive;
+    width: 70%;
+    
+}
+input[type = "checkbox"]{
+    width: 20pt;
+}
+#task{
+    display:flex;
+    font-family:'Dancing Script', cursive;
+    justify-content:space-between;
+    align-items: center;
+    margin-top: 5pt;
+}
+#all_tasks_display{
+    height: 300pt;
+    border: 2pt solid black;
+    border-style: outset;
+    text-align: start;
+    padding: 15pt;
+    margin-top: -2pt;
+    overflow-y:auto;
+}
+.remove{
+   font-size: large;
+ height: 20pt;
+ width:25pt;
+ padding-left: 5pt;
+
+}
+.left{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5pt;
+    font-size: 15pt;
+}
+button{
+    font-family:'Dancing Script', cursive;
+    border:2pt solid black; 
+    width: 80pt;
+
+}
+.check{
+    height: 20pt;
+}
+input #new_task {
+    padding: 5pt;
+    
+}
+.edit{
+    height: 20pt;
+    width:35pt;
+}
+#buttons{
+    display: flex;
+}
+.task{
+    display:grid;
+    grid-template-columns: 20% 80%;
+} 
+::-webkit-input-placeholder {color:#000}
+::-moz-placeholder {color:#000}
+::-moz-placeholder{color:#000}
+::-ms-input-placeholder{color:#000}

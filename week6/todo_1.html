@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <section class = "display">
+        <h1>TODOS</h1>
+       <div class = "left">Task left:<div id ="count"></div></div>
+    
+    <div id="all_tasks_display"></div>
+    
+    <form id = "task">
+    <input type="text" id="new_task" placeholder="Hello">
+    <button type="button" onclick="addTask()" id = "add">ADD</button>
+    <button type="button" onclick = "doFilter()" id = "filterLst">FILTER</button>
+    </form>
+</section>
+<script>
+    const newTask = document.getElementById('new_task').value;
+    const addBtn = document.getElementById('add');
+    const clearBtn = document.getElementById('clear');
+    const btnRemove = document.getElementsByClassName('remove');
+    const checkList = document.getElementsByClassName('check');
+    const checkboxList = document.getElementsByClassName('incomplite')
+    let storedTasksString = localStorage.getItem('time')
+    let allTasks = JSON.parse(storedTasksString)
+   
+    
+      window.onload = showAllTasks(allTasks);
+    function doFilter(){
+        var storedTasksString = localStorage.getItem('time')
+        var allTasks = JSON.parse(storedTasksString)
+        allTasks.sort(function(a, b){return a.complited - b.complited}
+        )
+            var allTasksString = JSON.stringify(allTasks) 
+           localStorage.setItem('time', allTasksString)
+           //console.log(allTasks)
+        
+           showAllTasks(allTasks)
+        
+    }  
+
+    function compliteTask(event){
+        
+        
+        var storedTasksString = localStorage.getItem('time')
+        var allTasks = JSON.parse(storedTasksString)
+        let checkArray = Array.from(checkList)
+        console.log(event.target)
+        checkArray.forEach(element=>{
+        let indexOfElement = checkArray.indexOf(element);
+        
+        
+   
+        if(element == event.target){
+        allTasks[indexOfElement].complited = true;
+        var allTasksString = JSON.stringify(allTasks) 
+        localStorage.setItem('time', allTasksString)
+          showAllTasks(allTasks)
+        }
+})
+
+    }
+    
+
+function addTask(){
+    let aCompleteTask = {};
+    let newTask = document.getElementById('new_task').value;
+    let time = new Date().toLocaleString();
+    //aCompleteTask += '<div class = "task"><input type="checkbox">' + newTask + '<span id = "remove" >X</span></div>'
+   aCompleteTask  = {id: time ,content : newTask, complited: false }
+   var storedTasksString = localStorage.getItem('time')
+    var allTasks = JSON.parse(storedTasksString);
+    if(newTask != " "){
+    if(allTasks == null){
+       allTasks = [] }
+allTasks.push(aCompleteTask)
+
+var allTasksString = JSON.stringify(allTasks) 
+localStorage.setItem('time', allTasksString)
+   
+    showAllTasks(allTasks)}
+    else{
+        alert("Need to write a task")
+    }
+    
+for(element of checkList){
+   element.addEventListener('click', compliteTask)
+}
+
+    
+   
+}
+
+function showAllTasks(){
+var checkboxArray = Array.from(checkboxList);
+var storedTasksString = localStorage.getItem('time')
+var allTasks = JSON.parse(storedTasksString)
+var countDisplay = document.getElementById('count');
+var count = 0;
+
+if(allTasks != null){
+ 
+var taskDisplayer = document.getElementById('all_tasks_display') 
+taskDisplayer.innerHTML = null
+var numberOfTask = allTasks.length
+console.log(numberOfTask)
+for (var i = 0; i < numberOfTask; i++) {
+    
+var aTask = allTasks[i]
+//taskDisplayer.innerHTML += '<div class = "task"><input type="checkbox" checked =false class="incomplite">' + aTask.id + " " + aTask.content + " " + aTask.complited +  '<span class = "remove" >X</span></div>'
+if (allTasks[i].complited == true)
+{console.log("complited")
+allTasks[i].innerHTML = "bbb"
+    taskDisplayer.innerHTML += '<div class= "section"><div id = "task" class = "complited"><input type="checkbox"checked = "true"  class = "check">' + aTask.id + " " + aTask.content + " " + aTask.complited + '</div><button type ="button" class = "remove" >X</button></div>'
+count +=1 }
+else{
+    
+    console.log("incomplited")
+    taskDisplayer.innerHTML += '<div class= "section"><div id = "task"><input type="checkbox" class="check"  >' + aTask.id + " " + aTask.content + " " + aTask.complited +  '</div><button type ="button" class = "remove" >X</button></div>'
+}
+
+}
+countDisplay.innerHTML = (numberOfTask - count);   
+}
+document.getElementById('new_task').value = " ";
+//console.log(btnRemove)
+for(element of btnRemove){
+    element.addEventListener('click', removeElement)
+}
+
+for(element of checkList){
+   element.addEventListener('click', compliteTask)
+}
+
+console.log(checkList)
+
+
+}
+
+
+function clearTasks(){
+localStorage.clear()
+
+
+}
+
+
+
+function removeElement(){
+var storedTasksString = localStorage.getItem('time')
+var allTasks = JSON.parse(storedTasksString)
+let removeArray = Array.from(btnRemove)
+console.log(removeArray)
+console.log(event.target)
+removeArray.forEach(element=>{
+    let indexOfElement = removeArray.indexOf(element);
+    
+        if(element == event.target){
+            allTasks.splice(indexOfElement,1)
+            var allTasksString = JSON.stringify(allTasks) 
+           localStorage.setItem('time', allTasksString)
+            
+}
+            showAllTasks(allTasks)      
+
+    }
+);
+
+}
+
+    
+
+</script>
+</body>
+</html>

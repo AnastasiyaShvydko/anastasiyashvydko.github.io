@@ -1,0 +1,71 @@
+h1:hover #translate {
+    color: #484848;  
+    transform: translateY(-20px);}
+
+h1 #translate {
+    font-size: 30px;
+    color: #999999;
+    display: inline-block;}
+
+#scale{
+    font-size: 30px;
+    color: #999999;
+    display: inline-block;
+}
+h1:hover #scale{
+    transform: scale(2, 2);
+}
+#scew1{
+    font-size: 30px;
+    color: #999999;
+    display: inline-block;
+    transition: transform 0.2s ease-out 50ms, color 0.1s linear 50ms;
+}
+
+h1:hover #scew1{
+    color:blue;
+    transform: rotate(15deg);
+}
+
+@keyframes moveRight { 
+    from {
+    transform: translateX(0%);
+    }
+    to {
+    transform: translateX(50%);
+    }
+}
+#animation_1{
+    height: 50pt;
+    width: 50pt;
+    background-color: blue;
+    animation-name: moveRight;
+    animation-duration: 4s;
+    animation-iteration-count: 3;
+    
+}
+@keyframes appearDisappear { 
+    0%, 100% {
+    opacity: 0;
+    }
+    20%, 80% {
+    opacity: 1;
+    }
+}
+#animation_2{
+    height: 50pt;
+    width: 50pt;
+    background-color: rgb(255, 0, 221);
+    animation-name: appearDisappear;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+}
+
+@keyframes bgMove {
+    100% {
+    background-position: 120% 0;
+    }
+}
+
+

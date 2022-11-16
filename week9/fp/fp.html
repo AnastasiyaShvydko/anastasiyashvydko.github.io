@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #first{
+            height: 100pt;
+            width: 100pt;
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <div id="first">first</div>
+    <button onclick="clearAll()">clear</button>
+</body>
+<script>
+    const first = document.getElementById('first')
+    first.addEventListener('click', addInput,false)
+    const myInfo = localStorage.getItem("myInfo");
+    let lstInfo;
+   
+
+    function addInput(event){
+        const form = document.createElement('form');
+        const input = document.createElement('input');
+        const btn = document.createElement('button');
+        btn.id = "add"
+        input.id = "info"
+        //btn.
+        btn.innerHTML = "Add Data"
+        form.appendChild(input);
+        form.appendChild(btn);
+        first.appendChild(form);
+
+        first.removeEventListener('click', addInput)
+        //first.addEventListener('click', addInput,false)
+        saveData()
+
+    }
+
+    function saveData (){
+        const btnAdd = document.getElementById('add')
+        btnAdd.addEventListener("click", submitData)
+
+    }
+
+    function submitData(event){
+//event.preventDefault()
+const info = document.getElementById("info").value
+if(lstInfo == null){
+ lstInfo = []
+}
+//lstInfo = Array.from(myInfo)
+lstInfo.push(info)
+console.log(lstInfo)
+localStorage.setItem("myInfo", lstInfo)
+console.log("hy")
+    }
+
+function showData(){
+   
+    console.log(myInfo)
+}
+function clearAll(){
+    localStorage.clear("myInfo")
+    console.log("hi")
+}
+
+showData()
+
+</script>
+</html>

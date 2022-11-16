@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="newObj()"></button>
+    <script>
+const sayHi = function (name) {
+ this.name = name,
+ this.sayHi = function(){
+    console.log(`hi ${this.name}`)
+ }
+
+}
+
+class User{
+    constructor(name,lastName){
+        this.name = name;
+        this.lastName = lastName;
+    }
+    get name() {
+return this._name
+    }
+    set name(value){
+if (value.length <= 3){
+    alert("Need more")
+    return
+} 
+else{
+    this._name = value;
+}
+    }
+}
+function newObj(){
+    //newSayHi = new sayHi("Nastya");
+    let user  = new User("Iv", "Shvydko");
+    console.log(user.name)
+    
+    //console.log(newSayHi.name);
+
+}
+    </script>
+</body>
+</html>

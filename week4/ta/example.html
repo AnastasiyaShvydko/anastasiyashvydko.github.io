@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+#board {
+    display: grid;
+    grid-template-columns: 200px 200px 200px ;
+    
+}
+div {
+    display: flex;
+   justify-content: center;
+    height: 200px;
+    border: 5px solid rgb(3, 3, 3);
+    font-size:120px;
+    align-items: center;
+    
+}
+    </style>
+    
+</head>
+<body>
+    <section id="board">
+    <div id="section"></div>
+    <div id="section"></div>
+    <div id="section"></div>
+    <div id="section"></div>
+    <div id="section"></div>
+    <div id="section"></div>
+    <div id="section"></div>
+    <div id="section"></div>
+    <div id="section"></div>
+</section>
+<div id = "which_turn"></div>
+<button onclick="resetAll()">reset</button>
+<script>
+    const slots = document.querySelectorAll('#section');
+    let player = " ";
+    let player1 = "X";
+    let player2 = "0";
+    let touchNumber = 0;
+   let game = 0;
+    let finish = slots.length;
+    let turn = document.getElementById("which_turn")
+    /*let section1 = document.getElementById('section1');
+    let section2 = document.getElementById('section2');
+    let section3 = document.getElementById('section3');
+    let section4 = document.getElementById('section4');
+    let section5 = document.getElementById('section5');
+    let section6 = document.getElementById('section6');
+    let section7 = document.getElementById('section7');
+    let section8 = document.getElementById('section8');
+    let section9 = document.getElementById('section9');*/
+   
+    //console.log(slots)
+   for( slot of slots){
+     slot.addEventListener('click', touchFunction);
+        
+
+  }
+ //slots.forEach(touchFunction())
+    player = player1 
+    turn.innerHTML = `it is your turn ${player}`
+    function touchFunction(event){
+//game++
+    if(game < finish ){   
+        
+    if(event.target.innerHTML == ""){
+       
+        if (player == player1){
+       
+        
+        
+            //console.log("hello")
+           // console.log(touchNumber)
+           event.target.innerHTML = player;
+           game++
+           player = player2
+           console.log(player + game)
+           turn.innerHTML = `it is your turn ${player}`
+           
+            } 
+        else{
+            event.target.innerHTML = player;
+            player = player1
+            game++
+            console.log(player + game + finish)
+            turn.innerHTML = `it is your turn ${player}`
+        }
+
+        // }
+            
+        //if (touchNumber%2 == 0){
+          //  slot.style.background = "green";
+//drawO();
+
+        }
+    
+    
+       /* if(section1.innerHTML && section4.innerHTML && section7.innerHTML == "X" || section2.innerHTML && section5.innerHTML && section8.innerHTML == "X"){
+           console.log("X is won!");
+
+        }*/
+        else {alert('Slot is not empty!')
+    console.log ('Hello')}   
+    }
+    else{
+        turn.innerHTML= "Game is over"
+    }
+   
+   
+       // console.log("Game is over")
+    
+    
+}
+
+    
+
+
+    function resetAll(){
+        const slots = document.getElementsByTagName('div');
+        for( slot of slots){
+            slot.innerHTML= "";
+            touchNumber = 0;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+body{
+    display: block;
+    background-color:rgb(240, 232, 222);
+}
+li{}
+ul{
+    list-style: none;
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function functionOne(){
+        let nastya = {name: "Nastya"};
+        function sayHi() {
+  alert( this.name );
+}
+nastya.sayName = sayHi;
+nastya.sayName();}
+
+ function functionTwo(){
+    let nastya = {
+        name: "Nastya",
+        age: "18",
+
+     sayHiAgain(){
+       alert(this.name)
+       //you can write name of the varieble or 
+       //alert(nastya.name)
+    }
+}
+nastya.sayHiAgain();
+ }
+ /*Create an object calculator with three methods:
+read() prompts for two values and saves them as object properties with names a and b respectively.
+sum() returns the sum of saved values.
+mul() multiplies saved values and returns the result.*/
+function functionThree(){
+ 
+let calculator = {
+  // ... your code ...
+  read(){
+    this.a = Number(prompt("Entre number #1"));
+    this.b = Number(prompt("Enter number #2"));},
+  sum(){
+    return this.a+this.b
+},
+mul(){
+return this.a * this.b
+}
+
+
+
+  };
+
+calculator.read();
+alert( calculator.sum() );
+alert( calculator.mul() );
+}
+
+
+
+function functionFour(){
+let ladder = {
+    step: 0,
+  up(){
+    this.step++;
+    return this;
+  },
+  down() {
+      this.step--;
+      return this;
+  },
+  showStep() { // shows the current step
+    alert( this.step );
+    return this;
+    
+  }
+};
+
+
+ladder.up().up().down().showStep().down().showStep();}
+
+/*
+function makeUser() {
+  return {
+    name: "John",
+    ref() {
+      return this;
+    }
+  };
+}
+
+let user = makeUser();
+
+alert( user.ref().name ); // John*/
+function objectsExample(){
+const superman = {
+    name: 'Superman',
+    'real name': 'Clark Kent',
+    height: 75,
+    weight: 235,
+    hero: true,
+    villain: false,
+    allies: ['Batman','Supergirl','Superboy'],
+    fly() {
+        return 'Up, up and away!';
+    }
+}
+superman.city = "New York";
+for(const key in superman) {
+    console.log(key + ": " + superman[key]);
+}
+
+};
+function greet(){
+  
+    const imageArray = Array.from(document.images);
+    for(element in imageArray){
+        console.log(element)
+    }
+ 
+}
+
+
+    </script>
+</head>
+<body>
+
+    <button onclick="functionOne()">One</button>
+    <button onclick="functionTwo()">Two</button>
+    <button onclick="functionThree()">Calculator</button>
+    <button onclick="functionFour()">Steps</button>
+    <button onclick="objectsExample()">Object Iteration</button>
+    <button onclick="greet()">Object Iteration</button>
+
+
+
+</body>
+</html>
+</body>
+</html>

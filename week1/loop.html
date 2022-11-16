@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let someNumbers = [];
+        function addNumber(){
+            
+            var newNumber = document.getElementById("numbers_input").value;
+            someNumbers.push(newNumber);
+        }
+        function checkNumber(){
+            if (someNumbers.length < 7){
+                document.getElementById("result_display").innerHTML +="Please enter more numbers."
+            }
+          //  var someNumbers = [25, 11, -2, 14, "What?? This isn't a number!", -1, -10];
+          else {
+            document.getElementById("result_display").innerHTML ="";
+            for(var i = 0; i < 7; i ++){
+              var numberAsText = someNumbers[i];
+              var aNumber = parseInt(numberAsText);
+if(aNumber != "" && !isNaN(aNumber)){
+var remainder = Math.abs(numberAsText % 2);
+    if(aNumber != 0 && remainder == 0){
+        document.getElementById("result_display").innerHTML += aNumber + " is even."}
+        
+    else if(aNumber != 0 && remainder == 1){
+        document.getElementById("result_display").innerHTML += aNumber + " is odd."}
+
+    else {
+        document.getElementById("result_display").innerHTML += "0 is neither even nor odd."}
+    }
+else{
+    document.getElementById("result_display").innerHTML +="Please enter a number."} 
+}
+
+        }
+    }
+    </script>
+</head>
+<body>
+    <h1>Even or Odd???</h1>
+Enter a Number: <input id=numbers_input></input>
+<button onclick="checkNumber()">Check It!</button> <section id="result_display"></section>
+<button onclick ="addNumber()"> Add Number</button>
+    
+    
+</body>
+</html>
