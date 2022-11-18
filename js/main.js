@@ -6,7 +6,8 @@ url: 'week4/index.html'}, {label: 'Week05',
 url: 'week5/index.html'} , {label: 'Week07',
 url: 'week7/index.html'}, {label: 'Week08',
 url: 'week8/index.html'},{label: 'Week09',
-url: 'week9/index.html'}]
+url: 'week9/index.html'},{label: 'Week10',
+url: 'week10/index.html'}]
 
 function loadLinks(){
 for (var i = 0; i < myArray.length; i++){
