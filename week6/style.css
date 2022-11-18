@@ -14,7 +14,7 @@ background-color: bisque;
 text-align: center;
 margin: 10pt;
 padding: 10pt;
-background-image: url('background.jpg');
+background-image: url('./background.JPG');
 background-size: 100%;
 
 }
