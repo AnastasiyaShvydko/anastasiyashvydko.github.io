@@ -1,5 +1,5 @@
 //mport Storage from './ls.js';
-import { allTasks } from "./ls.js"
+//import { allTasks } from "./ls.js"
 import { storedTasksString } from "./ls.js"
 
 const checkboxList = document.getElementsByClassName('incomplite');
@@ -7,7 +7,7 @@ const btnRemove = document.getElementsByClassName('remove');
 const checkList = document.getElementsByClassName('check');
 const addBtn = document.getElementById('add');
 const btnEdit = document.getElementsByClassName('edit');
-
+let allTasks = JSON.parse(storedTasksString);
 
 
     export function doFilter(){
@@ -54,10 +54,11 @@ const btnEdit = document.getElementsByClassName('edit');
         //aCompleteTask += '<div class = "task"><input type="checkbox">' + newTask + '<span id = "remove" >X</span></div>'
        aCompleteTask  = {id: time ,content : newTask, complited: false }
        var storedTasksString = localStorage.getItem('time')
-        //var allTasks = JSON.parse(storedTasksString);
+       // allTasks = JSON.parse(storedTasksString);
         if(newTask != ""){
-        if(allTasks == null){
-           allTasks = [] }
+         if(allTasks == null){
+            allTasks = [] }
+           console.log(allTasks)
     allTasks.push(aCompleteTask)
     
     var allTasksString = JSON.stringify(allTasks) 
