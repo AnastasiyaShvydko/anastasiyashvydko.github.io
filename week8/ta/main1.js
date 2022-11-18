@@ -66,7 +66,7 @@ function showList(strResponse){
         li.appendChild(div)
 
         li.addEventListener("click", showDetailes)
-       /fetch(strResponse.results[i].url,{
+        fetch(strResponse.results[i].url,{
         method: 'GET',
         mode: 'cors',
        redirect: 'follow',

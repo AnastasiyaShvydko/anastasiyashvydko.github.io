@@ -37,7 +37,7 @@ if(response.ok) {
 .then(response => response.json())
 .then(function parseFunc(strResponse){
     //let nextPage = strResponse.next
-   // console.log("req1")
+    console.log("req1")
     let lst = []
     let strLenght = strResponse.results.length
     url = strResponse.next
