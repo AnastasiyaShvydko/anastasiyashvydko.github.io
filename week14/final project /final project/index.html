@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      
+
+    </style>
+    <link rel="stylesheet" href="style.css">
+  </head>
+<body>
+  <header>
+    <img src="./assets/rainbow-flower-png.webp" alt="">
+    
+  </header>
+  <div id="buttons">
+    <div id ="showCardBtn">Card</div>
+    <a href="./book.html" target="_blank" rel="noopener noreferrer">Book</a>
+  </div>
+   <ul class="showCardDiv" id="showDiv"></ul>
+  <div id="enter">
+    <form id="formOne">
+      <div id = "language_choose_element">
+        <div id="language_choose">
+          <p> Choose Language</p>
+          <select type ="text" id="first_language" name="first_language" required>
+            <option value="-">-</option>
+            <option value="ru">RUS</option>
+            <option value="en">EN</option>
+          </select>
+          <select type ="text" id="second_language" name="second_language" required>
+            <option value="-">-</option>
+            <option value="ru">RUS</option>
+            <option value="en">EN</option>
+          </select>
+        </div>
+      </div>
+      <label for="word">
+        Enter a word:
+      </label>
+      <input  id="word" name="word" placeholder="word..." required >
+      <button type="button" name = "translate"  id="translate">Translate</button><br>
+        
+    </form>
+  </div>
+  
+<div id = "info">
+  <div id="posList">
+    <ul id="pos">
+    </ul>
+  </div>
+  <div id="defList">
+    <ul id="def">
+    </ul>
+  </div>
+  <div id="exList">
+    <ul id="ex">
+    </ul>
+  </div>
+  </div>
+  
+  <div id="photoEl">
+  </div>
+   
+</body>
+<script src="main.js" type="module"></script>
+
+</html>
