@@ -9,7 +9,7 @@ url: 'week7/index.html'}, {label: 'Week08',
 url: 'week8/index.html'},{label: 'Week09',
 url: 'week9/index.html'},{label: 'Week10',
 url: 'week10/index.html'},{label: 'Final Project',
-url: 'week14/final project/final project/index.html'}]
+url: 'final project/index.html'}]
 
 function loadLinks(){
 for (var i = 0; i < myArray.length; i++){
