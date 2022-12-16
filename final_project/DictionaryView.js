@@ -127,78 +127,100 @@ export default class DictionaryView{
             
     }
     
+    // showCardFunction(showDiv,i){
+    //     let list = localStorage.getItem('words')
+
+    // }
     //shows card when we have more than one card in our list
     showCard(showDiv,i){
         let list = localStorage.getItem('words')
-        let listJSON = JSON.parse(list)
-        this.showOneCard(showDiv,i)
-        const btn1 = document.createElement('button');
-        btn1.innerText = "<"
-        btn1.classList.add("backBtn")
-        const btn2 = document.createElement('button');
-        btn2.innerText = ">"
-        btn2.classList.add("nextBtn")
-        showDiv.appendChild(btn1)
-        showDiv.appendChild(btn2)
-        if(i == 0&listJSON.length > 1){
-            btn1.hidden = true;
-            //btn2.style.marginLeft = "115%"
-        }
-        else if(listJSON.length == 1&i == 0 ){
+        if(list!=null){
+            let listJSON = JSON.parse(list)
             this.showOneCard(showDiv,i)
-        }
-        btn2.addEventListener('click', e =>{
-            e.preventDefault()
-            i++
-            if (i <listJSON.length - 1){
-                this.showCard(showDiv,i++)
+            // const btn1 = document.createElement('button');
+            // btn1.innerText = "<"
+            // btn1.classList.add("backBtn")
+            // const btn2 = document.createElement('button');
+            // btn2.innerText = ">"
+            // btn2.classList.add("nextBtn")
+            // showDiv.appendChild(btn1)
+            // showDiv.appendChild(btn2)
+            if(i == 0&listJSON.length > 1){
+                const btn1 = document.createElement('button');
+                btn1.innerText = "<"
+                btn1.classList.add("backBtn")
+                const btn2 = document.createElement('button');
+                btn2.innerText = ">"
+                btn2.classList.add("nextBtn")
+                showDiv.appendChild(btn1)
+                showDiv.appendChild(btn2)
+                btn1.hidden = true;
+                btn2.addEventListener('click', e =>{
+                    e.preventDefault()
+                    i++
+                    if (i <listJSON.length - 1){
+                        this.showCard(showDiv,i++)
+                    }
+                    else{
+                        this.showLastCard(showDiv,i)
+                    }
+            
+                })
+                btn1.addEventListener('click', e =>{
+                    e.preventDefault()
+                    if(i!=0){
+                        this.showCard(showDiv,i - 1)}
+                    })
+                //btn2.style.marginLeft = "115%"
             }
-            else{
-                this.showLastCard(showDiv,i)
+            else if(listJSON.length == 1&i == 0 ){
+                this.showOneCard(showDiv,i)
             }
-       
-        })
-        btn1.addEventListener('click', e =>{
-            e.preventDefault()
-            if(i!=0){
-                this.showCard(showDiv,i - 1)}
-            })
-       
+            
         }
+        else{
+            showDiv.innerHTML = "Sorry, your Memory List is Empty!"
+        }
+    }
 
 //shows card when we have just one card in the list it displays without buttons back and force
     showOneCard(showDiv,i){
         let list = localStorage.getItem('words')
         showDiv.innerHTML = " ";
-        var listJSON = JSON.parse(list)
-        const li = document.createElement('li');
-        const mainDiv = document.createElement('div');
-        const divChildFace = document.createElement('div');
-        const divChildBack= document.createElement('div');
-        const divChildBackContent= document.createElement('div');
-        mainDiv.classList.add("center")
-        mainDiv.classList.add("card")
-        divChildBackContent.innerHTML = listJSON[i].def
-        divChildFace.innerHTML = listJSON[i].word
-        divChildBack.classList.add("back")
-        divChildFace.classList.add("face")
-        divChildBackContent.classList.add("center")
-        showDiv.appendChild(li)
-        li.appendChild(mainDiv)
-        mainDiv.appendChild(divChildFace)
-        mainDiv.appendChild(divChildBack)
-        divChildBack.appendChild(divChildBackContent)
-        showDiv.classList.remove("cards")
-        showDiv.classList.add('showCardDiv')
-        const btn3 = document.createElement('button');
-        btn3.innerHTML = "x"
-        btn3.classList.add("closeBtn")
-        showDiv.appendChild(btn3)
-        btn3.addEventListener('click', e =>{
-            e.preventDefault()
-            showDiv.innerHTML = "";
+        if(list!=null){
+            var listJSON = JSON.parse(list)
+            const li = document.createElement('li');
+            const mainDiv = document.createElement('div');
+            const divChildFace = document.createElement('div');
+            const divChildBack= document.createElement('div');
+            const divChildBackContent= document.createElement('div');
+            mainDiv.classList.add("center")
+            mainDiv.classList.add("card")
+            divChildBackContent.innerHTML = listJSON[i].def
+            divChildFace.innerHTML = listJSON[i].word
+            divChildBack.classList.add("back")
+            divChildFace.classList.add("face")
+            divChildBackContent.classList.add("center")
+            showDiv.appendChild(li)
+            li.appendChild(mainDiv)
+            mainDiv.appendChild(divChildFace)
+            mainDiv.appendChild(divChildBack)
+            divChildBack.appendChild(divChildBackContent)
+            showDiv.classList.remove("cards")
+            showDiv.classList.add('showCardDiv')
+            const btn3 = document.createElement('button');
+            btn3.innerHTML = "x"
+            btn3.classList.add("closeBtn")
+            showDiv.appendChild(btn3)
+            btn3.addEventListener('click', e =>{
+                e.preventDefault()
+                showDiv.innerHTML = "";
 
-        })
+            })
+        }
+        else{
+            showDiv.innerHTML = "Sorry, your Memory List is Empty!"
+        }
 
     }
     //shows last card

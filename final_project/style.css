@@ -53,7 +53,7 @@ body{
   }
   /* style for form elements */
   #word{
-    height: 20pt;
+    height: auto;
     font-family:'Viaoda Libre';
     font-size: 1.3em;
     }
